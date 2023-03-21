@@ -43,9 +43,11 @@ public class Perro implements Runnable {
 	}
 	
 	public String getIdHilo() {
-		return  " ..." + Thread.currentThread().getName() 
+		return  " ..." 
+	            + Thread.currentThread().getName() 
 				+ ", id: " 
-				+ Thread.currentThread().getId();
+				+ Thread.currentThread().getId()
+				+ "  Hilos activos: " + Thread.activeCount();
 	}
 
 	@Override
