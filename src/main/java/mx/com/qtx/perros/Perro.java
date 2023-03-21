@@ -39,7 +39,13 @@ public class Perro implements Runnable {
 	}
 
 	public void ladrar() {
-		System.out.println(this.nombre + " dice Guau!");
+		System.out.println(String.format("%-10s", this.nombre) + " dice Guau!" + this.getIdHilo() );
+	}
+	
+	public String getIdHilo() {
+		return  " ..." + Thread.currentThread().getName() 
+				+ ", id: " 
+				+ Thread.currentThread().getId();
 	}
 
 	@Override
@@ -59,10 +65,10 @@ public class Perro implements Runnable {
 			this.ladrar();
 		}
 		catch(InterruptedException e) {
-			System.out.println(this.nombre + " ha sido interrumpido");
+			System.out.println(String.format("%-10s", this.nombre)  + " ha sido interrumpido" + this.getIdHilo());
 		}
 		finally {
-			System.out.println(this.nombre + " dice Auuuuuu ");
+			System.out.println(String.format("%-10s", this.nombre)  + " dice Auuuuuu " + this.getIdHilo());
 		}
 	}
 	public void esperarRandom() throws InterruptedException {

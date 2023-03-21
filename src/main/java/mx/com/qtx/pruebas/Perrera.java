@@ -15,7 +15,7 @@ public class Perrera {
 		fido.empezarAladrar();
 		barack.empezarAladrar();
 		
-		System.out.println("Arrancan!!");
+		System.out.println("Arrancan!!" + getIdHilo());
 		
 		esperarMilis(5000);
 		firu.terminarDeLadrar();
@@ -28,7 +28,7 @@ public class Perrera {
 		fido.avisarFin();
 		barack.avisarFin();
 				
-		System.out.println("*** Han callado todos los perros ***");
+		System.out.println("*** Han callado todos los perros ***" + getIdHilo());
 		
 	}
 
@@ -39,6 +39,11 @@ public class Perrera {
 			e.printStackTrace();
 		}
 		
+	}
+	public static String getIdHilo() {
+		return  " ..." + Thread.currentThread().getName() 
+				+ ", id: " 
+				+ Thread.currentThread().getId();
 	}
 
 }
